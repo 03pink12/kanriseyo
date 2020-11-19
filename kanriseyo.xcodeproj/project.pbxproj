@@ -3,16 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		043D4B5225514F490065C894 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D4B5125514F490065C894 /* AppDelegate.swift */; };
 		043D4B5425514F490065C894 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D4B5325514F490065C894 /* SceneDelegate.swift */; };
-		043D4B5625514F490065C894 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D4B5525514F490065C894 /* ViewController.swift */; };
 		043D4B5925514F490065C894 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043D4B5725514F490065C894 /* Main.storyboard */; };
 		043D4B5B25514F500065C894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043D4B5A25514F500065C894 /* Assets.xcassets */; };
 		043D4B5E25514F500065C894 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043D4B5C25514F500065C894 /* LaunchScreen.storyboard */; };
+		043D4B66255153130065C894 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D4B65255153130065C894 /* HomeViewController.swift */; };
+		043D4B68255153C60065C894 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D4B67255153C60065C894 /* CalendarViewController.swift */; };
+		043D4B6A255153F80065C894 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D4B69255153F80065C894 /* ShoppingViewController.swift */; };
+		043D4B6C2551540A0065C894 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D4B6B2551540A0065C894 /* NoticeViewController.swift */; };
+		043D4B6E255154210065C894 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D4B6D255154210065C894 /* SettingViewController.swift */; };
+		043D4B702551549A0065C894 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D4B6F2551549A0065C894 /* CreateViewController.swift */; };
+		048BE8732560F48A002F48F0 /* CreateNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048BE8722560F48A002F48F0 /* CreateNoticeViewController.swift */; };
+		04C055072553E148000AB882 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C055052553E148000AB882 /* HomeTableViewCell.swift */; };
+		04C055082553E148000AB882 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C055062553E148000AB882 /* HomeTableViewCell.xib */; };
+		04C0550D2553E933000AB882 /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0550B2553E933000AB882 /* NoticeTableViewCell.swift */; };
+		04C0550E2553E933000AB882 /* NoticeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C0550C2553E933000AB882 /* NoticeTableViewCell.xib */; };
+		04C055112553EB23000AB882 /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0550F2553EB23000AB882 /* ShoppingTableViewCell.swift */; };
+		04C055122553EB23000AB882 /* ShoppingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C055102553EB23000AB882 /* ShoppingTableViewCell.xib */; };
+		04E779FC2565852A00124C01 /* DotLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E779FB2565852A00124C01 /* DotLineView.swift */; };
+		04E779FE2565893100124C01 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E779FD2565893100124C01 /* UIColorHex.swift */; };
+		04FE71FE255EF35F00D2AC9F /* MenuTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE71FD255EF35F00D2AC9F /* MenuTabBarController.swift */; };
+		04FE7200255F06AD00D2AC9F /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE71FF255F06AD00D2AC9F /* Items.swift */; };
+		04FE7202255F08AD00D2AC9F /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE7201255F08AD00D2AC9F /* Groups.swift */; };
+		04FE7204255F08FB00D2AC9F /* Histories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE7203255F08FB00D2AC9F /* Histories.swift */; };
+		04FE7206255F35EA00D2AC9F /* BarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE7205255F35EA00D2AC9F /* BarcodeViewController.swift */; };
 		DFDFCFBF6D50070E64226DB6 /* Pods_kanriseyo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27496EC35C6AB61B23450AA /* Pods_kanriseyo.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,11 +39,30 @@
 		043D4B4E25514F490065C894 /* kanriseyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kanriseyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		043D4B5125514F490065C894 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		043D4B5325514F490065C894 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		043D4B5525514F490065C894 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		043D4B5825514F490065C894 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		043D4B5A25514F500065C894 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		043D4B5D25514F500065C894 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		043D4B5F25514F500065C894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		043D4B65255153130065C894 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		043D4B67255153C60065C894 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		043D4B69255153F80065C894 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
+		043D4B6B2551540A0065C894 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		043D4B6D255154210065C894 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		043D4B6F2551549A0065C894 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		048BE8722560F48A002F48F0 /* CreateNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoticeViewController.swift; sourceTree = "<group>"; };
+		04C055052553E148000AB882 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		04C055062553E148000AB882 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		04C0550B2553E933000AB882 /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
+		04C0550C2553E933000AB882 /* NoticeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeTableViewCell.xib; sourceTree = "<group>"; };
+		04C0550F2553EB23000AB882 /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
+		04C055102553EB23000AB882 /* ShoppingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingTableViewCell.xib; sourceTree = "<group>"; };
+		04E779FB2565852A00124C01 /* DotLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotLineView.swift; sourceTree = "<group>"; };
+		04E779FD2565893100124C01 /* UIColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
+		04FE71FD255EF35F00D2AC9F /* MenuTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTabBarController.swift; sourceTree = "<group>"; };
+		04FE71FF255F06AD00D2AC9F /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		04FE7201255F08AD00D2AC9F /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
+		04FE7203255F08FB00D2AC9F /* Histories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Histories.swift; sourceTree = "<group>"; };
+		04FE7205255F35EA00D2AC9F /* BarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewController.swift; sourceTree = "<group>"; };
 		3E1E751094A16C4C7B218EFC /* Pods-kanriseyo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanriseyo.debug.xcconfig"; path = "Target Support Files/Pods-kanriseyo/Pods-kanriseyo.debug.xcconfig"; sourceTree = "<group>"; };
 		5F18553430022A5DBCB690DA /* Pods-kanriseyo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanriseyo.release.xcconfig"; path = "Target Support Files/Pods-kanriseyo/Pods-kanriseyo.release.xcconfig"; sourceTree = "<group>"; };
 		E27496EC35C6AB61B23450AA /* Pods_kanriseyo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kanriseyo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,8 +103,27 @@
 			children = (
 				043D4B5125514F490065C894 /* AppDelegate.swift */,
 				043D4B5325514F490065C894 /* SceneDelegate.swift */,
-				043D4B5525514F490065C894 /* ViewController.swift */,
+				043D4B65255153130065C894 /* HomeViewController.swift */,
+				043D4B69255153F80065C894 /* ShoppingViewController.swift */,
+				043D4B6B2551540A0065C894 /* NoticeViewController.swift */,
+				043D4B67255153C60065C894 /* CalendarViewController.swift */,
+				043D4B6D255154210065C894 /* SettingViewController.swift */,
+				04FE7205255F35EA00D2AC9F /* BarcodeViewController.swift */,
+				043D4B6F2551549A0065C894 /* CreateViewController.swift */,
+				048BE8722560F48A002F48F0 /* CreateNoticeViewController.swift */,
 				043D4B5725514F490065C894 /* Main.storyboard */,
+				04C055052553E148000AB882 /* HomeTableViewCell.swift */,
+				04C055062553E148000AB882 /* HomeTableViewCell.xib */,
+				04C0550F2553EB23000AB882 /* ShoppingTableViewCell.swift */,
+				04C055102553EB23000AB882 /* ShoppingTableViewCell.xib */,
+				04C0550B2553E933000AB882 /* NoticeTableViewCell.swift */,
+				04C0550C2553E933000AB882 /* NoticeTableViewCell.xib */,
+				04FE71FF255F06AD00D2AC9F /* Items.swift */,
+				04FE7201255F08AD00D2AC9F /* Groups.swift */,
+				04FE7203255F08FB00D2AC9F /* Histories.swift */,
+				04FE71FD255EF35F00D2AC9F /* MenuTabBarController.swift */,
+				04E779FB2565852A00124C01 /* DotLineView.swift */,
+				04E779FD2565893100124C01 /* UIColorHex.swift */,
 				043D4B5A25514F500065C894 /* Assets.xcassets */,
 				043D4B5C25514F500065C894 /* LaunchScreen.storyboard */,
 				043D4B5F25514F500065C894 /* Info.plist */,
@@ -88,7 +145,6 @@
 				3E1E751094A16C4C7B218EFC /* Pods-kanriseyo.debug.xcconfig */,
 				5F18553430022A5DBCB690DA /* Pods-kanriseyo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -154,7 +210,10 @@
 			files = (
 				043D4B5E25514F500065C894 /* LaunchScreen.storyboard in Resources */,
 				043D4B5B25514F500065C894 /* Assets.xcassets in Resources */,
+				04C0550E2553E933000AB882 /* NoticeTableViewCell.xib in Resources */,
+				04C055082553E148000AB882 /* HomeTableViewCell.xib in Resources */,
 				043D4B5925514F490065C894 /* Main.storyboard in Resources */,
+				04C055122553EB23000AB882 /* ShoppingTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,9 +266,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				043D4B5625514F490065C894 /* ViewController.swift in Sources */,
+				043D4B68255153C60065C894 /* CalendarViewController.swift in Sources */,
+				04C055112553EB23000AB882 /* ShoppingTableViewCell.swift in Sources */,
+				04FE71FE255EF35F00D2AC9F /* MenuTabBarController.swift in Sources */,
+				043D4B702551549A0065C894 /* CreateViewController.swift in Sources */,
+				04E779FC2565852A00124C01 /* DotLineView.swift in Sources */,
 				043D4B5225514F490065C894 /* AppDelegate.swift in Sources */,
+				04E779FE2565893100124C01 /* UIColorHex.swift in Sources */,
+				04FE7206255F35EA00D2AC9F /* BarcodeViewController.swift in Sources */,
+				04C0550D2553E933000AB882 /* NoticeTableViewCell.swift in Sources */,
+				04FE7200255F06AD00D2AC9F /* Items.swift in Sources */,
+				048BE8732560F48A002F48F0 /* CreateNoticeViewController.swift in Sources */,
+				043D4B6E255154210065C894 /* SettingViewController.swift in Sources */,
+				043D4B6C2551540A0065C894 /* NoticeViewController.swift in Sources */,
+				04FE7204255F08FB00D2AC9F /* Histories.swift in Sources */,
+				04C055072553E148000AB882 /* HomeTableViewCell.swift in Sources */,
 				043D4B5425514F490065C894 /* SceneDelegate.swift in Sources */,
+				043D4B6A255153F80065C894 /* ShoppingViewController.swift in Sources */,
+				043D4B66255153130065C894 /* HomeViewController.swift in Sources */,
+				04FE7202255F08AD00D2AC9F /* Groups.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +439,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.momomo.kanriseyo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -383,7 +458,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.momomo.kanriseyo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

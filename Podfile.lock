@@ -1,4 +1,5 @@
 PODS:
+  - FloatingPanel (2.0.1)
   - Realm (5.1.0):
     - Realm/Headers (= 5.1.0)
   - Realm/Headers (5.1.0)
@@ -6,17 +7,20 @@ PODS:
     - Realm (= 5.1.0)
 
 DEPENDENCIES:
+  - FloatingPanel
   - RealmSwift (= 5.1.0)
 
 SPEC REPOS:
   trunk:
+    - FloatingPanel
     - Realm
     - RealmSwift
 
 SPEC CHECKSUMS:
+  FloatingPanel: 579a5ac0154f923a9d7302c4f13dbc0268511c92
   Realm: bdea546851e37b4cf0a2400cef115c7c26fda488
   RealmSwift: 70945aa168db93b215c460e9c8ef680261aa28af
 
-PODFILE CHECKSUM: 671fa1b7fbbe3178f8ee9e718cbde819f8082670
+PODFILE CHECKSUM: 4339a3f56694970f89b0fbd395ed081dc1e74531
 
 COCOAPODS: 1.10.0

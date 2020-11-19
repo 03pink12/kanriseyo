@@ -7,5 +7,6 @@ target 'kanriseyo' do
 
   # Pods for kanriseyo
   pod 'RealmSwift','5.1.0'
+  pod 'FloatingPanel'
 
 end

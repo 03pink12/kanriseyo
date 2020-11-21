@@ -1,5 +1,5 @@
 //
-//  ShoppingViewController.swift
+//  NoticeViewController.swift
 //  kanriseyo
 //
 //  Created by mac on 2020/11/03.
@@ -9,33 +9,30 @@
 import UIKit
 import RealmSwift
 
-class ShoppingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NoticeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var totalLabel: UILabel!
+    
     
     // Realmインスタンスを取得する
     let realm = try! Realm()
     var itemsArray = try! Realm().objects(Items.self).filter("notice_date <= %@ || out_date <= %@",Date(),Date()).sorted(byKeyPath: "created_at", ascending: false)
-    
+
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
     }
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
 
-        // カスタムセルを登録する
-        let nib = UINib(nibName: "ShoppingTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "ShoppingCell")
+        print(itemsArray)
         
-        //アイテムの合計金額を表示
-        var total = 0
-        for priceData in itemsArray{
-            total += priceData.price
-        }
-        // コメント内容の表示
-        self.totalLabel.text = "合計金額：¥\(total)"
+        // カスタムセルを登録する
+        let nib = UINib(nibName: "NoticeTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "NoticeCell")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,24 +40,21 @@ class ShoppingViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // セルを取得してデータを設定する
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingCell", for: indexPath) as! ShoppingTableViewCell
-        cell.setItemsData(itemsArray[indexPath.row])       
+         // セルを取得してデータを設定する
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NoticeCell", for: indexPath) as! NoticeTableViewCell
+        cell.setItemsData(itemsArray[indexPath.row])
         return cell
     }
+    
     // 各セルを選択した時に実行されるメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
+    
+    
 
-    // セルが削除が可能なことを伝えるメソッド
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath)-> UITableViewCell.EditingStyle {
-        return .delete
-    }
 
-    // Delete ボタンが押された時に呼ばれるメソッド
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    }
-  
+
+    
 
     /*
     // MARK: - Navigation

@@ -14,12 +14,10 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     let realm = try! Realm()
     var items: Items!
     var floatingPanelController: FloatingPanelController!
-    
+
     //半モーダル
     var fpc = FloatingPanelController()
-    //lazy var contentVC =
-        //storyboard?.instantiateViewController(withIdentifier: "CreateNoticeViewController") as! CreateNoticeViewController
-
+        
     
     //@IBOutlet weak var saveButtonLabel: UIBarButtonItem!
     @IBOutlet weak var nameTextField: UITextField!
@@ -34,6 +32,53 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     var noticeStock = Int()
     var noticeDay = Int(10)
     
+    //表示
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
+       let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
+       self.view.addGestureRecognizer(tapGesture)
+        
+        //半モーダルを用意
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let createNoticeVC = storyboard.instantiateViewController(withIdentifier: "CreateNotice") as! CreateNoticeViewController
+        fpc.delegate = self
+        let appearance = SurfaceAppearance()
+        appearance.cornerRadius = 10.0
+        fpc.surfaceView.appearance = appearance
+        createNoticeVC.noticeStock = noticeStock
+        createNoticeVC.noticeDay = noticeDay
+        fpc.set(contentViewController: createNoticeVC)
+        
+        //文字列をセット
+        nameTextField.text = items.name
+        priceTextField.text = String(items.price)
+        let image:UIImage? = UIImage(data: items.image_file)
+        if image != nil {
+            pictureImageView.image = UIImage(data: items.image_file)
+        } else {
+            pictureImageView.image = UIImage(named:"no_image.png")
+        }
+        stockTextField.text = String(items.stock)
+        durationTextField.text = String(items.duration)
+        memoTextView.text = items.memo
+        unitTextField.text = String(items.unit)
+        noticeSettingLabel.text = "在庫数が\(noticeStock)になる\(noticeDay)日前に通知する"
+    }
+
+    /*func floatingPanelWillRemove(_ fpc: FloatingPanelController) {
+        print("おかわり")
+        print(noticeDay)
+        noticeSettingLabel.text = "在庫数が\(noticeStock)になる\(noticeDay)日前に通知する"
+    }*/
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // 半モーダルビューを非表示にする
+        floatingPanelController.removePanelFromParent(animated: true)
+    }
+    
+    //「保存」タップ
     @IBAction func saveButton(_ sender: Any) { //登録か編集かで分ける
         let stock = Int(self.stockTextField.text ?? "0") ?? 0
         let duration = Int(self.durationTextField.text ?? "0") ?? 0
@@ -54,8 +99,8 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
             self.items.jan_code = 0
             self.items.group_id = 0
             self.items.notice_flg = false
-            self.items.notice_stock = 0
-            self.items.notice_day = 10
+            self.items.notice_stock = self.noticeStock
+            self.items.notice_day = self.noticeDay
             self.items.notice_date = noticeDate
             self.items.out_date = outDate
             self.items.created_at = Date() //初めての登録時のみ今日の日付
@@ -70,7 +115,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    //個数マイナスボタン
+    //個数マイナスボタン タップ
     @IBAction func minusButton(_ sender: Any) {
         let stock = Int(self.stockTextField.text ?? "0") ?? 0
         if stock > 0{
@@ -78,19 +123,20 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
-    //個数プラスボタン
+    //個数プラスボタン タップ
     @IBAction func plusButton(_ sender: Any) {
         let stock = Int(self.stockTextField.text ?? "0") ?? 0
         self.stockTextField.text = String(stock + 1)
     }
     
-    //通知設定への画面遷移
+    //「通知設定」タップ
     @IBAction func TapNotice(_ sender: Any) {
         //半モーダルを表示
         fpc.addPanel(toParent: self, animated: true)
+        fpc.move(to: .half, animated: true)
     }
     
-    //imgaeタップ
+    //「imgae」タップ
     @IBAction func imageTap(_ sender: Any) {
         //アラート生成
         let actionSheet = UIAlertController(title: "写真の追加方法", message: "選択してください", preferredStyle: UIAlertController.Style.alert)
@@ -128,48 +174,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.present(actionSheet, animated: true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
-       let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
-       self.view.addGestureRecognizer(tapGesture)
-        
-        //半モーダルを用意
-        fpc.contentMode = .fitToBounds
-        let contentVC = CreateNoticeViewController()
-        fpc.delegate = self
-        let appearance = SurfaceAppearance()
-        appearance.cornerRadius = 24.0
-        fpc.set(contentViewController: contentVC)
-        
-        //文字列をセット
-        nameTextField.text = items.name
-        priceTextField.text = String(items.price)
-        let image:UIImage? = UIImage(data: items.image_file)
-        if image != nil {
-            pictureImageView.image = UIImage(data: items.image_file)
-        } else {
-            pictureImageView.image = UIImage(named:"no_image.png")
-        }
-        stockTextField.text = String(items.stock)
-        durationTextField.text = String(items.duration)
-        memoTextView.text = items.memo
-        unitTextField.text = String(items.unit)
-        noticeSettingLabel.text = "在庫数が\(noticeStock)になる\(noticeDay)日前に通知する"
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        // 半モーダルビューを非表示にする
-        floatingPanelController.removePanelFromParent(animated: true)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let createNoticeViewController:CreateNoticeViewController = segue.destination as! CreateNoticeViewController
-        createNoticeViewController.noticeStock = noticeStock
-        createNoticeViewController.noticeDay = noticeDay
-    }
-    
+    //画像をUIImageに反映
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if info[.originalImage] != nil {
             // 撮影/選択された画像を取得する
@@ -179,6 +184,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
+    //キャンセルのとき
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // ImageSelectViewController画面を閉じてタブ画面に戻る
         self.presentingViewController?.dismiss(animated: true, completion: nil)

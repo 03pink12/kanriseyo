@@ -9,11 +9,14 @@
 import UIKit
 
 class ShoppingTableViewCell: UITableViewCell {
-    @IBOutlet weak var taskButton: UIButton!
+    @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var countdownLabel: UILabel!
     @IBOutlet weak var stockTextField: UITextField!
+    
+    let checkImageName = ["check_circle_off", "check_circle_on"]
+    var checkImgNo = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +41,17 @@ class ShoppingTableViewCell: UITableViewCell {
             let countdown = duration - elapsedDays!
             self.countdownLabel.text = "あと\(countdown)日"
     }
-
+    @IBAction func checkTap(_ sender: Any) {
+        // ボタンを更新する
+        if checkImgNo == 0 {
+            checkImgNo = 1
+        } else if checkImgNo == 1 {
+            checkImgNo = 0
+        }
+        let buttonImage = UIImage(named: checkImageName[checkImgNo])
+        self.checkButton.setImage(buttonImage, for: .normal)
+    }
+    
 }
     
 

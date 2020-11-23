@@ -28,11 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func changeNavigationBarColor() {
         // 全てのNavigation Barの色を変更する
         // Navigation Bar の背景色の変更
-        UINavigationBar.appearance().barTintColor = UIColor(red: 0/255, green: 196/255, blue: 195/255, alpha: 1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(hex: "00C4C3")
         // Navigation Bar の文字色の変更
-        UINavigationBar.appearance().tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+        UINavigationBar.appearance().tintColor = UIColor(hex: "ffffff")
         // Navigation Bar のタイトルの文字色の変更
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(hex: "ffffff")]
     }
 
     // MARK: UISceneSession Lifecycle

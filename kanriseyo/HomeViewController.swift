@@ -43,6 +43,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     // 各セルを選択した時に実行されるメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "cellSegue",sender: nil)
     }
 
     // セルが削除が可能なことを伝えるメソッド
@@ -52,6 +53,46 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     // Delete ボタンが押された時に呼ばれるメソッド
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            //削除するタスクを取得する
+            let items = self.itemsArray[indexPath.row]
+            
+            // ローカル通知をキャンセルする
+            let center = UNUserNotificationCenter.current()
+            center.removePendingNotificationRequests(withIdentifiers: [String(items.id)])
+
+            // データベースから削除する
+            try! realm.write {
+                self.realm.delete(items)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            
+            // 未通知のローカル通知一覧をログ出力
+            center.getPendingNotificationRequests { (requests: [UNNotificationRequest]) in
+                for request in requests {
+                    print("/---------------")
+                    print(request)
+                    print("---------------/")
+                }
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "manual_input" {
+            let createViewController:CreateViewController = segue.destination as! CreateViewController
+            let items = Items()
+            let allItems = realm.objects(Items.self)
+            if allItems.count != 0 {
+                items.id = allItems.max(ofProperty: "id")! + 1
+            }
+            createViewController.items = items
+        }else if segue.identifier == "cellSegue" {
+            let detailViewController:DetailViewController = segue.destination as! DetailViewController
+            let indexPath = self.tableView.indexPathForSelectedRow
+            detailViewController.items = itemsArray[indexPath!.row]
+        }
     }
     
 

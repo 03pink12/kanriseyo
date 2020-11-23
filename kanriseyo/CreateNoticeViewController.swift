@@ -7,38 +7,43 @@
 //
 
 import UIKit
+import FloatingPanel
 
-class CreateNoticeViewController: UIViewController {
+class CreateNoticeViewController: UIViewController,FloatingPanelControllerDelegate {
 
     @IBOutlet weak var noticeStockTextField: UITextField!
     @IBOutlet weak var noticeDayTextField: UITextField!
+    @IBOutlet weak var navigationView: UIView!
     
     var noticeStock = Int()
     var noticeDay = Int()
     
+    override func viewDidLayoutSubviews() {
+        self.navigationView.addBorder(width: 0.5, color: UIColor(hex: "BDBDBF"), position: .bottom)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.view.backgroundColor = .black
-        print("こんにちわ")
-        //noticeStockTextField.text = String(noticeStock)
-        //noticeDayTextField.text = String(noticeDay)
-
+        noticeStockTextField.text = String(noticeStock)
+        noticeDayTextField.text = String(noticeDay)
     }
-    @IBAction func backBtn(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    
+    @IBAction func cancelBtn(_ sender: Any) {
+        noticeStockTextField.text = String(noticeStock)
+        noticeDayTextField.text = String(noticeDay)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveBtn(_ sender: Any) {
+        noticeStock = Int(noticeStockTextField.text ?? "0") ?? 0
+        noticeDay = Int(noticeDayTextField.text ?? "0") ?? 0
         // 前画面のViewControllerを取得
-        let createViewController = self.presentingViewController as! CreateViewController
-        createViewController.noticeStock = Int(self.noticeStockTextField.text ?? "0") ?? 0
-        createViewController.noticeDay = Int(self.noticeStockTextField.text ?? "0") ?? 0
-        self.dismiss(animated: true, completion: nil)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let createViewController:CreateViewController = segue.destination as! CreateViewController
-        createViewController.noticeStock = Int(self.noticeStockTextField.text ?? "0") ?? 0
-        createViewController.noticeDay = Int(self.noticeStockTextField.text ?? "0") ?? 0
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let createVC = storyboard.instantiateViewController(withIdentifier: "Create") as! CreateViewController
+        createVC.noticeStock = self.noticeStock
+        createVC.noticeDay = self.noticeDay
+        createVC.noticeSettingLabel.text = "在庫数が\(createVC.noticeStock)になる\(createVC.noticeDay)日前に通知する"
+        dismiss(animated: true, completion: nil)
     }
 
     /*

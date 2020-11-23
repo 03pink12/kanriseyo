@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042385BA256A3D19006A0239 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042385B9256A3D19006A0239 /* DetailViewController.swift */; };
 		043D4B5225514F490065C894 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D4B5125514F490065C894 /* AppDelegate.swift */; };
 		043D4B5425514F490065C894 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D4B5325514F490065C894 /* SceneDelegate.swift */; };
 		043D4B5925514F490065C894 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043D4B5725514F490065C894 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042385B9256A3D19006A0239 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		043D4B4E25514F490065C894 /* kanriseyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kanriseyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		043D4B5125514F490065C894 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		043D4B5325514F490065C894 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				04FE7205255F35EA00D2AC9F /* BarcodeViewController.swift */,
 				043D4B6F2551549A0065C894 /* CreateViewController.swift */,
 				048BE8722560F48A002F48F0 /* CreateNoticeViewController.swift */,
+				042385B9256A3D19006A0239 /* DetailViewController.swift */,
 				043D4B5725514F490065C894 /* Main.storyboard */,
 				04C055052553E148000AB882 /* HomeTableViewCell.swift */,
 				04C055062553E148000AB882 /* HomeTableViewCell.xib */,
@@ -273,6 +276,7 @@
 				04E779FC2565852A00124C01 /* DotLineView.swift in Sources */,
 				043D4B5225514F490065C894 /* AppDelegate.swift in Sources */,
 				04E779FE2565893100124C01 /* UIColorHex.swift in Sources */,
+				042385BA256A3D19006A0239 /* DetailViewController.swift in Sources */,
 				04FE7206255F35EA00D2AC9F /* BarcodeViewController.swift in Sources */,
 				04C0550D2553E933000AB882 /* NoticeTableViewCell.swift in Sources */,
 				04FE7200255F06AD00D2AC9F /* Items.swift in Sources */,

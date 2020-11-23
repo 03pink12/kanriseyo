@@ -17,7 +17,6 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     //半モーダル
     var fpc = FloatingPanelController()
-        
     
     //@IBOutlet weak var saveButtonLabel: UIBarButtonItem!
     @IBOutlet weak var nameTextField: UITextField!
@@ -75,7 +74,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // 半モーダルビューを非表示にする
-        floatingPanelController.removePanelFromParent(animated: true)
+        fpc.removePanelFromParent(animated: true)
     }
     
     //「保存」タップ
@@ -216,15 +215,6 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         center.add(request) { (error) in
             print(error ?? "在庫切れローカル通知登録 OK")  // error が nil ならローカル通知の登録に成功したと表示します。errorが存在すればerrorを表示します。
         }
-
-        // 未通知のローカル通知一覧をログ出力
-        /*center.getPendingNotificationRequests { (requests: [UNNotificationRequest]) in
-            for request in requests {
-                print("/---------------")
-                print(request)
-                print("---------------/")
-            }
-        }*/
     }
     //ローカル通知(在庫のりこわずか)
     func setNotificationNoticsDate(items: Items) {

@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class NoticeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class NoticeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UINavigationBarDelegate{
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -18,6 +18,7 @@ class NoticeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var itemsArray = try! Realm().objects(Items.self).filter("notice_date <= %@ || out_date <= %@",Date(),Date()).sorted(byKeyPath: "created_at", ascending: false)
 
     override func viewWillAppear(_ animated: Bool) {
+        itemsArray = try! Realm().objects(Items.self).filter("notice_date <= %@ || out_date <= %@",Date(),Date()).sorted(byKeyPath: "created_at", ascending: false)
         self.tableView.reloadData()
     }
     
@@ -33,7 +34,8 @@ class NoticeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // カスタムセルを登録する
         let nib = UINib(nibName: "NoticeTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "NoticeCell")
-    }
+            
+        }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemsArray.count
@@ -48,6 +50,15 @@ class NoticeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // 各セルを選択した時に実行されるメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "noticeCellSegue",sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "noticeCellSegue" {
+            let detailViewController:DetailViewController = segue.destination as! DetailViewController
+            let indexPath = self.tableView.indexPathForSelectedRow
+            detailViewController.items = itemsArray[indexPath!.row]
+        }
     }
     
     

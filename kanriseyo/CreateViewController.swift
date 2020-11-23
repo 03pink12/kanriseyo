@@ -41,6 +41,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         //半モーダルを用意
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let createNoticeVC = storyboard.instantiateViewController(withIdentifier: "CreateNotice") as! CreateNoticeViewController
+        createNoticeVC.createVC = self
         fpc.delegate = self
         let appearance = SurfaceAppearance()
         appearance.cornerRadius = 10.0

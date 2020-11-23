@@ -42,7 +42,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tkM-E0-xoo"/>
                     </view>
-                    <navigationItem key="navigationItem" title="カンリセヨ" id="Q3C-1H-6bY"/>
+                    <navigationItem key="navigationItem" title="カンリセヨ" id="Q3C-1H-6bY">
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="HWp-5M-2Ml"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="qwu-PV-KIH" id="a4e-oa-DVK"/>
                         <segue destination="22I-8U-vre" kind="show" identifier="cellSegue" id="VCo-N0-pWA"/>
@@ -532,25 +534,6 @@
                                     <constraint firstAttribute="bottom" secondItem="Dan-nd-SWT" secondAttribute="bottom" id="nof-Qn-tQI"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMl-Li-Ti9">
-                                <rect key="frame" x="10" y="305" width="394" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Op6-5x-idV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
-                                <state key="normal" title="延長する">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="extendBtn:" destination="22I-8U-vre" eventType="touchUpInside" id="S1X-yF-2NC"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eNg-U3-S2c" userLabel="View4">
                                 <rect key="frame" x="10" y="232" width="394" height="63"/>
                                 <subviews>
@@ -583,12 +566,9 @@
                             <constraint firstItem="eNg-U3-S2c" firstAttribute="top" secondItem="reJ-wC-c7p" secondAttribute="bottom" constant="10" id="4FL-Ox-OZv"/>
                             <constraint firstItem="reJ-wC-c7p" firstAttribute="leading" secondItem="IZB-4y-poR" secondAttribute="leading" constant="10" id="D73-iH-z6o"/>
                             <constraint firstItem="reJ-wC-c7p" firstAttribute="top" secondItem="IZB-4y-poR" secondAttribute="top" constant="10" id="HGg-uE-7pC"/>
-                            <constraint firstItem="iMl-Li-Ti9" firstAttribute="leading" secondItem="reJ-wC-c7p" secondAttribute="leading" id="YrI-Vb-1zL"/>
                             <constraint firstItem="IZB-4y-poR" firstAttribute="trailing" secondItem="reJ-wC-c7p" secondAttribute="trailing" constant="10" id="r4t-8j-RrY"/>
                             <constraint firstItem="eNg-U3-S2c" firstAttribute="trailing" secondItem="reJ-wC-c7p" secondAttribute="trailing" id="tKg-fR-tck"/>
-                            <constraint firstItem="iMl-Li-Ti9" firstAttribute="top" secondItem="eNg-U3-S2c" secondAttribute="bottom" constant="10" id="vxM-y3-H4B"/>
                             <constraint firstItem="eNg-U3-S2c" firstAttribute="leading" secondItem="reJ-wC-c7p" secondAttribute="leading" id="yLW-TY-OoX"/>
-                            <constraint firstItem="iMl-Li-Ti9" firstAttribute="trailing" secondItem="reJ-wC-c7p" secondAttribute="trailing" id="z2x-97-Rv5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IZB-4y-poR"/>
                     </view>
@@ -957,7 +937,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nIO-yi-10W"/>
+        <segue reference="VCo-N0-pWA"/>
         <segue reference="8fX-dJ-gBp"/>
     </inferredMetricsTieBreakers>
     <resources>

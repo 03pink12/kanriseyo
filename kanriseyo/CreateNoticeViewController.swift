@@ -15,6 +15,7 @@ class CreateNoticeViewController: UIViewController,FloatingPanelControllerDelega
     @IBOutlet weak var noticeDayTextField: UITextField!
     @IBOutlet weak var navigationView: UIView!
     
+    var createVC : CreateViewController!
     var noticeStock = Int()
     var noticeDay = Int()
     
@@ -38,8 +39,6 @@ class CreateNoticeViewController: UIViewController,FloatingPanelControllerDelega
         noticeStock = Int(noticeStockTextField.text ?? "0") ?? 0
         noticeDay = Int(noticeDayTextField.text ?? "0") ?? 0
         // 前画面のViewControllerを取得
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let createVC = storyboard.instantiateViewController(withIdentifier: "Create") as! CreateViewController
         createVC.noticeStock = self.noticeStock
         createVC.noticeDay = self.noticeDay
         createVC.noticeSettingLabel.text = "在庫数が\(createVC.noticeStock)になる\(createVC.noticeDay)日前に通知する"

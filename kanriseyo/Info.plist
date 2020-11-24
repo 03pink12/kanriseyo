@@ -61,8 +61,8 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>カメラの使用を許可しますか？</string>
+	<string>本アプリは、画像の登録のため、カメラの使用許可を求めます。</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>ライブラリへのアクセスを許可しますか？</string>
+	<string>本アプリは、画像の登録のため、ライブラリの使用許可を求めます。</string>
 </dict>
 </plist>
